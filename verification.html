@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>CLINIC BRAIN</title>
+    <link rel="stylesheet" href="verification.css">
+   
+  </head>
+  <body>
+    <html>
+
+                <div class="container">
+                    <h1 id="ab">ENTER OTP</h1>
+                    <h1 id="abc">SEND OTP TO </h1>
+                    <div class="userInput">
+                        <input type="text" id='ist' maxlength="10" >
+                        <input type="text" id='rst' maxlength="10" >
+                    </div>
+                   <center><div class="f"  id="recaptcha-container"></div></center> 
+                    <button id="abcd" onclick="codeverify()">CONFIRM</button>
+                    <button id="abcdefgh" onclick="Pro()">SEND OTP</button>
+                </div>
+
+                <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+                
+    <script>
+      
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC3BOvbAf5jp__-O8yVPl4Ab-LOdWUYrNQ",
+    authDomain: "yt-project-ee057.firebaseapp.com",
+    projectId: "yt-project-ee057",
+    storageBucket: "yt-project-ee057.appspot.com",
+    messagingSenderId: "599415617957",
+    appId: "1:599415617957:web:1ddc03dd510182b292d04c",
+    measurementId: "G-49VLQF2PJ0"
+  };
+  firebase.initializeApp(firebaseConfig);
+  render();
+function render() {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+}
+
+  function Pro() {
+    var number = document.getElementById('rst').value;
+    firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+        window.confirmationResult = confirmationResult;
+     coderesult = confirmationResult;
+    document.getElementById('ab').style.display = 'block';
+     document.getElementById('abc').style.display = 'none';
+     document.getElementById('recaptcha-container').style.display = 'block';
+     document.getElementById('abcd').style.display = 'block';
+     document.getElementById('abcdefgh').style.display = 'none';
+     document.getElementById('ist').style.display = 'block';
+     document.getElementById('rst').style.display = 'none';
+        console.log('OTP Sent');
+    }).catch(function (error) { 
+        // error in sending OTP
+        alert(error.message);
+        console.log(error.message);
+    });
+}
+function codeverify() {
+   
+   
+    var code = document.getElementById('ist').value;
+    coderesult.confirm(code).then(function () {
+        console.log('OTP Verified');
+    }).catch(function () {
+        console.log('OTP Not correct');
+    })
+}
+
+    </script>
+
+    </body>
+    </html>

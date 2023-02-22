@@ -1,0 +1,16 @@
+    var number = '9832772300';
+    firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+        window.confirmationResult = confirmationResult;
+     coderesult = confirmationResult;
+    document.getElementById('ab').style.display = 'block';
+     document.getElementById('abc').style.display = 'none';
+     document.getElementById('recaptcha-container').style.display = 'block';
+     document.getElementById('abcd').style.display = 'block';
+     document.getElementById('abcdefgh').style.display = 'none';
+     document.getElementById('ist').style.display = 'block';
+        console.log('OTP Sent');
+    }).catch(function (error) { 
+        // error in sending OTP
+        alert(error.message);
+        console.log(error.message);
+    });

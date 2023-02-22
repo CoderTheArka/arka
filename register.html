@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>CLINIC BRAIN</title>
+    <link rel="stylesheet" href="astyle.css">
+    <script type="module" src="myscript.js"></script>
+  </head>
+  <body>
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+  
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
+  
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js'
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+    </script>
+
+    <div class="container">
+      <h2 id="s">Register</h2>
+      <input class="itext" type="text" placeholder="First Name" id="FirstName"><br>
+      <input class="itext" type="text" placeholder="Last Name"id="SecondName"><br>
+      <input class="itext" type="email" placeholder="Email" id="Email"><br>
+      <input class="itext" type="email" placeholder="Password" id="Password"><br>
+        <input class="itext" type="phone" placeholder="Phone" id="Phone">
+        <button class="submit" onclick="submit();">Register</button>
+
+    </div>
+ 
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
+
+</html>
+
